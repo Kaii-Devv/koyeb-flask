@@ -7,8 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return 'Hello from Koyeb'
+
 @app.route('/api/image')
-def hello_world():
+def image():
     prompt = request.args.get('prompt')
     if prompt:
         result = generateImagev2(prompt)
