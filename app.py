@@ -11,11 +11,11 @@ app = Flask(__name__)
 
 #
 def enc(text):
-    de = str(text.encode())
+    de = str(text).encode()
     key = b'JWCoVduCIBjJdSj8Y8965uulbg60W3-twaY-xitc5_Q='
     f = Fernet(key)
-    token = f.encrypt(strjs)
-    return token
+    token = f.encrypt(de)
+    return token.decode()
 
 @app.route('/')
 def hello_world():
@@ -34,15 +34,19 @@ def gpt():
     token = request.args.get("token")
     if prompt:
         if not token:
-            token = login(''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for x in range(20)])+'@vjuum.com')
+            token = enc(login(''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for x in range(20)])+'@vjuum.com'))
         key = b'JWCoVduCIBjJdSj8Y8965uulbg60W3-twaY-xitc5_Q='
         f = Fernet(key)
-        cookies = f.decrypt(token)
+        
+        cookies = eval(f.decrypt(token.encode()).decode())
+        print(type(cookies))
         
         respon = sendMessage(prompt,cookies=cookies)
+        if not respon:
+            return {'error':'token kadaluarsa'}
         return {'text':respon,'token':token}
     return {'error':'error'}
         
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8008)
