@@ -41,6 +41,7 @@ def gpt():
         
         respon = sendMessage(prompt,cookies=cookies)
         return {'text':respon,'token':token}
+    return {'error':'error'}
         
 
 if __name__ == "__main__":
