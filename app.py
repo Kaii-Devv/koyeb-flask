@@ -31,7 +31,7 @@ def image():
 @app.route('/api/gpt4o')
 def gpt():
     prompt = request.args.get('prompt')
-    token = request.args.get()
+    token = request.args.get("token")
     if prompt:
         if not token:
             token = login(''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for x in range(20)])+'@vjuum.com')
