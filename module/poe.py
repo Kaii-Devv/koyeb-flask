@@ -127,5 +127,5 @@ def login(email):
                             })
     return ses.cookies.get_dict()
     
-sendMessage('hasil pemilihan presiden indonesia 2024',cookies={'m-login': '1', 'm-b': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-b_lax': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-b_strict': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-s': 'VnA9rRIML6fXmG4ZhrC5MQ==', 'm-uid': '2574331198', 'm-lat': 'DKamVAWaTEClaTHVJ28jj74c4FyhBl4HB6F5l7Wfxg=='})
+# sendMessage('hasil pemilihan presiden indonesia 2024',cookies={'m-login': '1', 'm-b': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-b_lax': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-b_strict': '-WyFA3xnkKf5xwXRjjZ6Iw==', 'm-s': 'VnA9rRIML6fXmG4ZhrC5MQ==', 'm-uid': '2574331198', 'm-lat': 'DKamVAWaTEClaTHVJ28jj74c4FyhBl4HB6F5l7Wfxg=='})
 #print(login('kfdfddseekj7fgg4u7c3@vjuum.com'))
